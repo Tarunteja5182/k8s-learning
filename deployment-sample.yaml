@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment  
+metadata:
+  name: sample-deployment
+  labels:
+   project: learn-deployment
+   env: pol-dep
+spec: 
+  replicas : 3
+  selector:
+   matchLabels:
+    project: learn-deployment
+    env: pol-dep
+  template:
+   metadata:
+    labels:
+     project: learn-deployment
+     env: pol-dep
+   spec:
+    containers:
+     - name: nginx
+       image: nginx:1.25
+       ports:
+       - containerPort: 80
+     

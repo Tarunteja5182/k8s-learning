@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: np-service
+spec:
+  type: NodePort
+  selector:
+    project: learn-replica
+  ports:
+   - protocol : TCP
+     port: 80
+     targetPort: 80 # here flow goes like serviceport -> targetport -> containerport , so the targetport opened here should match with container port opened by the container

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name : sample-configmap
+data:
+ docker_url: https://hub.docker.com/repositories/taruntejamb
+ docker_user: taruntejamb7

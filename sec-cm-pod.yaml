@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: basic-Pod
+ labels:
+   project: pol-Pod
+   environemnt: learning
+spec:
+ containers:
+  - name: nginx
+    image: nginx:1.24 
+    ports:
+    - containerPort: 80
+    envFrom:
+    - configMapRef:
+       name: sample-configmap
+    - secretRef:
+       name: sample-secret
+     
