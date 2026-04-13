@@ -1,0 +1,26 @@
+apiVersion: v1 
+kind: Pod 
+metadata : 
+ name : pod-emp-dir 
+ labels: 
+  project: volumes-learning
+spec: 
+ containers: 
+  - name: nginx
+    image: nginx:1.24
+    volumeMounts:
+    - name: share-vol
+      mountPath: /var/log/nginx
+  - name: almalinux
+    image: almalinux:9
+    command: ["sleep", "2000"]
+    volumeMounts:
+    - name: share-vol 
+      mountPath: /mnt/nginx-log 
+      readOnly: true
+ volumes: 
+  - name: share-vol
+    emptyDir: 
+      sizeLimit: 500Mi
+     
+       
